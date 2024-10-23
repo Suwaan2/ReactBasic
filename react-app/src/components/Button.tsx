@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const Button = () => {
+interface Props{
+    children: ReactNode;
+    color?: "primary" | "secondary" | "danger" | "success";
+    handleClick: () => void;
+}
+
+const Button = ({ children, handleClick, color }: Props) => {
   return (
-    <button className='btn btn-primary'>ClickMe</button>
+    <button className={'btn btn-' + color} onClick={handleClick} >
+      {children}
+    </button>
   )
 }
 
 export default Button
+
